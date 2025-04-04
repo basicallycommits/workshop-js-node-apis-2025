@@ -16,11 +16,23 @@ app.use(express.json());
 // TODO Your application routes here
 
 app.get("/", (req, res) => {
+  return res.json({ message: "Welcome!" });
+});
+
+app.get("/hello", (req, res) => {
+  return res.json({ message: "Hello!" });
+});
+
+app.get("/hello/world", (req, res) => {
+  return res.json({ message: "Hello world!" });
+});
+
+app.post("/hello", (req, res) => {
   return res.json({ message: "Hello world!" });
 });
 
 // TODO Start the server
 
 app.listen(3000, () => {
-    console.log("Express server listening on port 3000");
+  console.log("Express server listening on port 3000");
 });
