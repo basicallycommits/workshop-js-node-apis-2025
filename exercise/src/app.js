@@ -36,9 +36,7 @@ app.get("/api/people", (req, res) => {
 
     const lastName = req.query.lastName;
 
-    return res.json({
-      message: `Hello ${firstName} ${lastName}!`,
-    });
+    res.send(`Hello ${firstName} ${lastName}`);
 })
 
 // TODO Start the server
