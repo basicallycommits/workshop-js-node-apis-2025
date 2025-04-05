@@ -13,7 +13,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json()); // middleware: tells express to activate json parsing standard(?)
-app.use("/assets", express.static("public"))
+app.use("/assets", express.static("public"));
 app.use(morgan("dev")); // tracks the api requests that your frontend (or postman!) sends to your server by logging them in the console.
 
 // TODO Your application routes here
@@ -35,33 +35,33 @@ app.post("/hello", (req, res) => {
 });
 
 app.get("/api/people", (req, res) => {
-    const firstName = req.query.firstName;
+  const firstName = req.query.firstName;
 
-    const lastName = req.query.lastName;
+  const lastName = req.query.lastName;
 
-    res.send(`Hello ${firstName} ${lastName}`);
+  res.send(`Hello ${firstName} ${lastName}`);
 });
 
 app.get("/api/people/lookup", (req, res) => {
-    const firstName = req.query.firstName;
+  const firstName = req.query.firstName;
 
-    const lastName = req.query.lastName;
+  const lastName = req.query.lastName;
 
-    return res.json({message : `Hello ${firstName} ${lastName}!`});
+  return res.json({ message: `Hello ${firstName} ${lastName}!` });
 });
 
 app.get("/test/:param1", (req, res) => {
+  const param1 = req.params.param1;
 
-    const param1 = req.params.param1;
-
-    // string interpolation: use tilde (`) to create a string with embedded expressions
-    res.send(`You've accessed resource via path parameter ${param1}`);
+  // string interpolation: use tilde (`) to create a string with embedded expressions
+  res.send(`You've accessed resource via path parameter ${param1}`);
 });
 
 app.post("/test2", (req, res) => {
-    console.log("This is the data from the client:", req.body);
-    return res.sendStatus(201);
-})
+  // request body is not allowed in certain requests (e.g. GET) but is allowed in POST requests.
+  console.log("This is the data from the client:", req.body);
+  return res.sendStatus(201);
+});
 
 // TODO Start the server
 
