@@ -1,5 +1,6 @@
 import express, { json } from "express";
 import cors from "cors";
+import morgan from "morgan";
 
 // Set's our port to the PORT environment variable, or 3000 by default if the env is not configured.
 const PORT = process.env.PORT ?? 3000;
@@ -13,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // middleware: tells express to activate json parsing standard(?)
 app.use("/assets", express.static("public"))
+app.use(morgan("dev")); // tracks the api requests that your frontend (or postman!) sends to your server by logging them in the console.
 
 // TODO Your application routes here
 
