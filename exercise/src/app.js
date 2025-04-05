@@ -39,7 +39,7 @@ app.get("/api/people", (req, res) => {
     res.send(`Hello ${firstName} ${lastName}`);
 })
 
-app.get("/test/param1", (req, res) => {
+app.get("/test/:param1", (req, res) => {
 
     const param1 = req.params.param1;
 
