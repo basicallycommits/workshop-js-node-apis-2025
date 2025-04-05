@@ -11,7 +11,7 @@ const app = express();
 // TODO Configure middleware with app.use() (CORS support, JSON parsing support, static files support)
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // middleware: tells express to activate json parsing standard(?)
 
 // TODO Your application routes here
 
@@ -54,6 +54,11 @@ app.get("/test/:param1", (req, res) => {
     // string interpolation: use tilde (`) to create a string with embedded expressions
     res.send(`You've accessed resource via path parameter ${param1}`);
 });
+
+app.post("/test2", (req, res) => {
+    console.log("This is the data from the client:", req.body);
+    return res.sendStatus(201);
+})
 
 // TODO Start the server
 
