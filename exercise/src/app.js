@@ -37,7 +37,15 @@ app.get("/api/people", (req, res) => {
     const lastName = req.query.lastName;
 
     res.send(`Hello ${firstName} ${lastName}`);
-})
+});
+
+app.get("/api/people/lookup", (req, res) => {
+    const firstName = req.query.firstName;
+
+    const lastName = req.query.lastName;
+
+    return res.json({message : `Hello ${firstName} ${lastName}!`});
+});
 
 app.get("/test/:param1", (req, res) => {
 
@@ -45,7 +53,7 @@ app.get("/test/:param1", (req, res) => {
 
     // string interpolation: use tilde (`) to create a string with embedded expressions
     res.send(`You've accessed resource via path parameter ${param1}`);
-})
+});
 
 // TODO Start the server
 
