@@ -12,6 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json()); // middleware: tells express to activate json parsing standard(?)
+app.use("/assets", express.static("public"))
 
 // TODO Your application routes here
 
