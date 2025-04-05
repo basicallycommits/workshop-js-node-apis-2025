@@ -1,9 +1,13 @@
 import express, { json } from "express";
 import cors from "cors";
 import morgan from "morgan";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // Set's our port to the PORT environment variable, or 3000 by default if the env is not configured.
-const PORT = process.env.PORT ?? 3000;
+// const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT;
 
 // TODO Create the Express server
 
