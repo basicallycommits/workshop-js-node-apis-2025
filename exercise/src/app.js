@@ -31,6 +31,16 @@ app.post("/hello", (req, res) => {
   return res.json({ message: "Hello world!" });
 });
 
+app.get("/api/people", (req, res) => {
+    const firstName = req.query.firstName;
+
+    const lastName = req.query.lastName;
+
+    return res.json({
+      message: `Hello ${firstName} ${lastName}!`,
+    });
+})
+
 // TODO Start the server
 
 app.listen(3000, () => {
