@@ -42,6 +42,17 @@ app.get("/api/people", (req, res) => {
   res.send(`Hello ${firstName} ${lastName}`);
 });
 
+app.post("/api/people", (req, res) => {
+  const { firstName, lastName, email } = req.body;
+
+  console.log(`Received new person: ${firstName} ${lastName}, Email: ${email}`);
+
+  // Send the response back to the client
+  return res.status(201).json({
+    message: `Person ${firstName} ${lastName} created successfully!`,
+  });
+});
+
 app.get("/api/people/lookup", (req, res) => {
   const firstName = req.query.firstName;
 
