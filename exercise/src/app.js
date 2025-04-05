@@ -43,6 +43,7 @@ app.get("/test/:param1", (req, res) => {
 
     const param1 = req.params.param1;
 
+    // string interpolation: use tilde (`) to create a string with embedded expressions
     res.send(`You've accessed resource via path parameter ${param1}`);
 })
 
