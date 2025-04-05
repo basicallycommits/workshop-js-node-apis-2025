@@ -39,6 +39,13 @@ app.get("/api/people", (req, res) => {
     res.send(`Hello ${firstName} ${lastName}`);
 })
 
+app.get("/test/param1", (req, res) => {
+
+    const param1 = req.params.param1;
+
+    res.send(`You've accessed resource via path parameter ${param1}`);
+})
+
 // TODO Start the server
 
 app.listen(3000, () => {
